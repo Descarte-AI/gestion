@@ -3,10 +3,6 @@ import { Menu, Bell, Search, X } from 'lucide-react';
 import { User as UserType, Department, Division, DocumentFlow } from '../types';
 import Header from './Header';
 import Sidebar from './Sidebar';
-import ClientRegistration from './secretary/ClientRegistration';
-import DocumentRouting from './secretary/DocumentRouting';
-import DocumentTracking from './secretary/DocumentTracking';
-import MyDocuments from './secretary/MyDocuments';
 import LandCadastralDashboard from './dashboards/LandCadastralDashboard';
 import FinancingDashboard from './dashboards/FinancingDashboard';
 import SalesManagementDashboard from './dashboards/SalesManagementDashboard';
@@ -67,20 +63,6 @@ const Dashboard: React.FC<DashboardProps> = ({
   ]);
 
   const renderContent = () => {
-    // Secretary sections (only for land-cadastral department)
-    if (department.id === 'land-cadastral') {
-      switch (activeSection) {
-        case 'client-registration':
-          return <ClientRegistration />;
-        case 'document-routing':
-          return <DocumentRouting />;
-        case 'document-tracking':
-          return <DocumentTracking />;
-        case 'my-documents':
-          return <MyDocuments />;
-      }
-    }
-    
     // Common sections
     switch (activeSection) {
       case 'dashboard':

@@ -55,17 +55,6 @@ const Sidebar: React.FC<SidebarProps> = ({
         { id: 'overview', title: 'Vue d\'ensemble', icon: FolderOpen }
       ]
     },
-    ...(department.id === 'land-cadastral' ? [{
-      id: 'secretary',
-      title: 'Secrétariat',
-      icon: UserCheck,
-      items: [
-        { id: 'client-registration', title: 'Enregistrement Client', icon: Users },
-        { id: 'document-routing', title: 'Routage Documents', icon: Send },
-        { id: 'document-tracking', title: 'Suivi Documents', icon: Eye },
-        { id: 'my-documents', title: 'Mes Documents', icon: FileText }
-      ]
-    }] : []),
     {
       id: 'documents',
       title: 'Documents',

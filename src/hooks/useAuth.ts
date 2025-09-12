@@ -61,6 +61,11 @@ export const useAuth = () => {
     }
   };
 
+  const selectOffice = (officeId: string) => {
+    if (user) {
+      setUser({ ...user, currentOffice: officeId });
+    }
+  };
   const logout = () => {
     setUser(null);
   };
@@ -71,6 +76,7 @@ export const useAuth = () => {
     login,
     selectDepartment,
     selectDivision,
+    selectOffice,
     logout
   };
 };

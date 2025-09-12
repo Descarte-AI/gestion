@@ -6,6 +6,7 @@ export interface User {
   divisions: Division[];
   currentDepartment?: Department;
   currentDivision?: Division;
+  currentOffice?: string;
 }
 
 export interface Department {

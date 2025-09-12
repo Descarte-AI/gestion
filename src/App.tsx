@@ -9,13 +9,15 @@ import UnifiedSelector from './components/UnifiedSelector';
 import DivisionDetail from './components/DivisionDetail';
 import DepartmentDetail from './components/DepartmentDetail';
 import Dashboard from './components/Dashboard';
+import OfficeDashboard from './components/OfficeDashboard';
 import { COMPANY_INFO } from './constants';
 
 function App() {
-  const { user, loading, login, selectDepartment, selectDivision, logout } = useAuth();
+  const { user, loading, login, selectDepartment, selectDivision, selectOffice, logout } = useAuth();
   const { language, setLanguage, t } = useLanguage();
   const [showDepartmentDetail, setShowDepartmentDetail] = React.useState<string | null>(null);
   const [showDivisionDetail, setShowDivisionDetail] = React.useState<string | null>(null);
+  const [selectedOffice, setSelectedOffice] = React.useState<string | null>(null);
 
   const handleLogin = async (credentials: any) => {
     await login(credentials);
@@ -26,6 +28,9 @@ function App() {
     // Navigate to dashboard after selecting department
   };
 
+  const handleOfficeSelect = (officeId: string) => {
+    setSelectedOffice(officeId);
+  };
   // Show department detail if requested
   if (showDepartmentDetail) {
     return (
@@ -45,16 +50,25 @@ function App() {
         divisionId={showDivisionDetail}
         user={user!}
         onBack={() => setShowDivisionDetail(null)}
-        onSelectOffice={(officeId) => {
-          // Here you would navigate to the office dashboard
-          console.log('Selected office:', officeId);
-        }}
+        onSelectOffice={handleOfficeSelect}
         language={language}
         setLanguage={setLanguage}
       />
     );
   }
 
+  // Show office dashboard if office is selected
+  if (selectedOffice && user) {
+    return (
+      <OfficeDashboard
+        user={user}
+        officeId={selectedOffice}
+        onBack={() => setSelectedOffice(null)}
+        onLogout={logout}
+        language={language}
+      />
+    );
+  }
   // Show dashboard if user is logged in and has selected a department
   if (user && user.currentDepartment && user.currentDivision) {
     return (

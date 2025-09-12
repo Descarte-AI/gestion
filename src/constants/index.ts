@@ -155,8 +155,8 @@ export const DIVISIONS: Division[] = [
         name: 'Bureau Secrétaire Général et Gestion Administrative',
         nameEn: 'Secretary General and Administrative Management Office',
         nameFr: 'Bureau Secrétaire Général et Gestion Administrative',
-        description: 'Coordination générale des activités administratives et secrétariat de direction.',
-        descriptionEn: 'General coordination of administrative activities and executive secretariat.',
+        description: 'Coordination générale des activités administratives, gestion du courrier, des événements, des appels et messagerie, ainsi que la gestion des chronos et répertoire des dossiers.',
+        descriptionEn: 'General coordination of administrative activities, mail management, events, calls and messaging, as well as chronos management and file directory.',
         image: 'https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=800',
         color: 'bg-indigo-700',
         divisionId: 'general-administration'
@@ -166,8 +166,8 @@ export const DIVISIONS: Division[] = [
         name: 'Bureau de la Logistique et Moyens Généraux',
         nameEn: 'Logistics and General Resources Office',
         nameFr: 'Bureau de la Logistique et Moyens Généraux',
-        description: 'Gestion des ressources matérielles, logistique et moyens généraux de l\'entreprise.',
-        descriptionEn: 'Management of material resources, logistics and general company resources.',
+        description: 'Gestion des stocks, des équipements et des ressources matérielles de l\'entreprise.',
+        descriptionEn: 'Stock management, equipment and material resources management of the company.',
         image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800',
         color: 'bg-orange-600',
         divisionId: 'general-administration'
@@ -177,8 +177,8 @@ export const DIVISIONS: Division[] = [
         name: 'Bureau des Archives Documentation et Services Internes',
         nameEn: 'Archives Documentation and Internal Services Office',
         nameFr: 'Bureau des Archives Documentation et Services Internes',
-        description: 'Gestion documentaire, archivage et coordination des services internes.',
-        descriptionEn: 'Document management, archiving and internal services coordination.',
+        description: 'Gestion des prestations, des visites, des archives et de la bibliothèque de l\'entreprise.',
+        descriptionEn: 'Management of services, visits, archives and company library.',
         image: 'https://images.pexels.com/photos/3184317/pexels-photo-3184317.jpeg?auto=compress&cs=tinysrgb&w=800',
         color: 'bg-indigo-500',
         divisionId: 'general-administration'
