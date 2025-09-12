@@ -148,7 +148,7 @@ export const DIVISIONS: Division[] = [
     description: 'Gestion administrative globale, coordination des services et supervision des opérations quotidiennes de l\'entreprise.',
     descriptionEn: 'Global administrative management, service coordination and supervision of daily business operations.',
     image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
-    color: 'bg-indigo-600',
+    color: 'bg-blue-600',
     offices: [
       {
         id: 'secretary-general',
@@ -169,7 +169,7 @@ export const DIVISIONS: Division[] = [
         description: 'Gestion des ressources matérielles, logistique et moyens généraux de l\'entreprise.',
         descriptionEn: 'Management of material resources, logistics and general company resources.',
         image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800',
-        color: 'bg-indigo-600',
+        color: 'bg-orange-600',
         divisionId: 'general-administration'
       },
       {
@@ -193,7 +193,7 @@ export const DIVISIONS: Division[] = [
     description: 'Gestion financière, comptabilité, contrôle budgétaire et analyse des performances économiques de l\'entreprise.',
     descriptionEn: 'Financial management, accounting, budget control and analysis of the company\'s economic performance.',
     image: 'https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=800',
-    color: 'bg-emerald-600',
+    color: 'bg-grey-600',
     offices: [
       {
         id: 'general-accounting',
@@ -238,7 +238,7 @@ export const DIVISIONS: Division[] = [
     description: 'Gestion du personnel, recrutement, formation, développement des compétences et bien-être des employés.',
     descriptionEn: 'Personnel management, recruitment, training, skills development and employee welfare.',
     image: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800',
-    color: 'bg-purple-600',
+    color: 'bg-blue-600',
     offices: [
       {
         id: 'recruitment-management',
@@ -248,7 +248,7 @@ export const DIVISIONS: Division[] = [
         description: 'Recrutement, gestion administrative du personnel et relations sociales.',
         descriptionEn: 'Recruitment, administrative personnel management and social relations.',
         image: 'https://images.pexels.com/photos/3184394/pexels-photo-3184394.jpeg?auto=compress&cs=tinysrgb&w=800',
-        color: 'bg-purple-700',
+        color: 'bg-grey-700',
         divisionId: 'human-resources'
       },
       {
@@ -259,7 +259,7 @@ export const DIVISIONS: Division[] = [
         description: 'Formation continue, développement des compétences et plans de carrière.',
         descriptionEn: 'Continuous training, skills development and career planning.',
         image: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800',
-        color: 'bg-purple-600',
+        color: 'bg-white-600',
         divisionId: 'human-resources'
       },
       {
@@ -270,7 +270,7 @@ export const DIVISIONS: Division[] = [
         description: 'Gestion du bien-être des employés et administration des avantages sociaux.',
         descriptionEn: 'Employee welfare management and social benefits administration.',
         image: 'https://images.pexels.com/photos/3184432/pexels-photo-3184432.jpeg?auto=compress&cs=tinysrgb&w=800',
-        color: 'bg-purple-500',
+        color: 'bg-orange-500',
         divisionId: 'human-resources'
       }
     ]
@@ -283,7 +283,7 @@ export const DIVISIONS: Division[] = [
     description: 'Stratégies marketing, communication corporate, relations publiques et développement de la marque.',
     descriptionEn: 'Marketing strategies, corporate communication, public relations and brand development.',
     image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800',
-    color: 'bg-rose-600',
+    color: 'bg-blue-600',
     offices: [
       {
         id: 'marketing-strategy',
@@ -293,7 +293,7 @@ export const DIVISIONS: Division[] = [
         description: 'Élaboration des stratégies marketing et coordination des campagnes de communication.',
         descriptionEn: 'Marketing strategy development and communication campaign coordination.',
         image: 'https://images.pexels.com/photos/3184477/pexels-photo-3184477.jpeg?auto=compress&cs=tinysrgb&w=800',
-        color: 'bg-rose-700',
+        color: 'bg-orange-700',
         divisionId: 'marketing-communication'
       },
       {
@@ -304,7 +304,7 @@ export const DIVISIONS: Division[] = [
         description: 'Gestion des relations publiques, relations presse et communication externe.',
         descriptionEn: 'Public relations management, press relations and external communication.',
         image: 'https://images.pexels.com/photos/3184491/pexels-photo-3184491.jpeg?auto=compress&cs=tinysrgb&w=800',
-        color: 'bg-rose-600',
+        color: 'bg-grey-600',
         divisionId: 'marketing-communication'
       },
       {
@@ -315,7 +315,7 @@ export const DIVISIONS: Division[] = [
         description: 'Développement de la marque, marketing digital et présence en ligne.',
         descriptionEn: 'Brand development, digital marketing and online presence.',
         image: 'https://images.pexels.com/photos/3184505/pexels-photo-3184505.jpeg?auto=compress&cs=tinysrgb&w=800',
-        color: 'bg-rose-500',
+        color: 'bg-blue-500',
         divisionId: 'marketing-communication'
       }
     ]

@@ -25,6 +25,7 @@ interface UnifiedSelectorProps {
   onSelectDivision: (division: Division) => void;
   onShowDepartmentDetail: (departmentId: string) => void;
   onShowDivisionDetail: (divisionId: string) => void;
+  onLogout: () => void;
   t: (key: string) => string;
   language: string;
   setLanguage: (lang: string) => void;
@@ -38,6 +39,7 @@ const UnifiedSelector: React.FC<UnifiedSelectorProps> = ({
   onSelectDivision,
   onShowDepartmentDetail,
   onShowDivisionDetail,
+  onLogout,
   t,
   language,
   setLanguage
@@ -61,16 +63,26 @@ const UnifiedSelector: React.FC<UnifiedSelectorProps> = ({
     <div className="min-h-screen relative">
       <AnimatedBackground />
       
-      {/* Language Switcher - Top Right */}
+      {/* Language Switcher and Logout - Top Right */}
       <div className="absolute top-6 right-6 z-20">
-        <LanguageSwitcher language={language as any} onLanguageChange={setLanguage as any} />
+        <div className="flex items-center space-x-4">
+          <LanguageSwitcher language={language as any} onLanguageChange={setLanguage as any} />
+          <button
+            onClick={onLogout}
+            className="flex items-center space-x-2 bg-red-900 backdrop-blur-sm text-white px-4 py-3 rounded-2xl border border-red-400/30 hover:bg-red-500 transition-all duration-300"
+          >
+            <span className="text-sm font-medium">
+              {language === 'en' ? 'Logout' : 'Déconnexion'}
+            </span>
+          </button>
+        </div>
       </div>
 
       <div className="relative z-10 min-h-screen p-6">
         <div className="max-w-7xl mx-auto">
           
           {/* User Profile Section */}
-          <div className="mb-12">
+          <div className="mb-12 mt-24">
             <div className="bg-white/10 backdrop-blur-2xl rounded-[3rem] p-8 border border-white/30 shadow-2xl">
               <div className="flex flex-col lg:flex-row items-center lg:items-start space-y-6 lg:space-y-0 lg:space-x-8">
                 
@@ -124,7 +136,7 @@ const UnifiedSelector: React.FC<UnifiedSelectorProps> = ({
 
                   <button
                     onClick={() => setShowUserDetails(true)}
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 px-6 rounded-2xl transition-all duration-300 flex items-center space-x-2 mx-auto lg:mx-0 shadow-xl hover:shadow-2xl transform hover:scale-105"
+                    className="bg-gradient-to-r from-blue-600 to-orange-600 hover:from-blue-700 hover:to--700 text-white font-bold py-3 px-6 rounded-2xl transition-all duration-300 flex items-center space-x-2 mx-auto lg:mx-0 shadow-xl hover:shadow-2xl transform hover:scale-105"
                   >
                     <Eye className="w-5 h-5" />
                     <span>Voir toutes les informations</span>
@@ -194,14 +206,14 @@ const UnifiedSelector: React.FC<UnifiedSelectorProps> = ({
           <div>
             <div className="text-center mb-12">
               <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-blue-400 to-orange-900 bg-clip-text text-transparent">
                   Divisions
                 </span>
               </h2>
               <p className="text-blue-100 text-xl">
                 {language === 'en' ? 'Choose your division' : 'Choisissez votre division'}
               </p>
-              <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full mx-auto mt-4"></div>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-orange-400 rounded-full mx-auto mt-4"></div>
             </div>
 
             <div className="space-y-12">
@@ -260,11 +272,11 @@ const UnifiedSelector: React.FC<UnifiedSelectorProps> = ({
                         <Building className="w-6 h-6 text-white" />
                       </div>
                       <h3 className="text-3xl lg:text-4xl font-bold mb-4 leading-tight">
-                        <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                        <span className="bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent">
                           {language === 'en' ? division.nameEn : division.nameFr}
                         </span>
                       </h3>
-                      <div className="w-20 h-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full mb-6"></div>
+                      <div className="w-20 h-1 bg-gradient-to-r from-orange-400 to-blue-400 rounded-full mb-6"></div>
                       <p className="text-xl text-blue-100 leading-relaxed mb-6">
                         {language === 'en' ? division.descriptionEn : division.description}
                       </p>
@@ -277,7 +289,7 @@ const UnifiedSelector: React.FC<UnifiedSelectorProps> = ({
                     <div className="flex flex-col sm:flex-row gap-4">
                       <button
                         onClick={() => onSelectDivision(division)}
-                        className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 flex items-center justify-center space-x-3 shadow-xl hover:shadow-2xl transform hover:scale-105"
+                        className="bg-gradient-to-r from-orange-500 to-blue-900 hover:from-blue-700 hover:to-orange-700 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 flex items-center justify-center space-x-3 shadow-xl hover:shadow-2xl transform hover:scale-105"
                       >
                         <span className="text-lg">Sélectionner Division</span>
                         <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
