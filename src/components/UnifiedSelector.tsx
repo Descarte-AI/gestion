@@ -56,7 +56,10 @@ const UnifiedSelector: React.FC<UnifiedSelectorProps> = ({
     ArrowRight: ArrowRight,
     Briefcase: Briefcase,
     Eye: Eye,
-    Mail: Mail
+  };
+
+  const handleDivisionSelect = (division: Division) => {
+    selectDivision(division);
   };
 
   return (

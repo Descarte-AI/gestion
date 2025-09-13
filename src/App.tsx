@@ -25,7 +25,6 @@ function App() {
 
   const handleDepartmentSelect = (department: Department) => {
     selectDepartment(department);
-    // Navigate to dashboard after selecting department
   };
 
   const handleOfficeSelect = (officeId: string) => {
@@ -70,12 +69,12 @@ function App() {
     );
   }
   // Show dashboard if user is logged in and has selected a department
-  if (user && user.currentDepartment && user.currentDivision) {
+  if (user && user.currentDepartment) {
     return (
       <Dashboard
         user={user}
         department={user.currentDepartment}
-        division={user.currentDivision}
+        division={user.currentDivision!}
         onLogout={logout}
         t={t}
         language={language}
