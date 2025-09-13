@@ -29,6 +29,7 @@ function App() {
 
   const handleOfficeSelect = (officeId: string) => {
     setSelectedOffice(officeId);
+    selectOffice(officeId);
   };
   // Show department detail if requested
   if (showDepartmentDetail) {

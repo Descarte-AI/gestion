@@ -171,11 +171,13 @@ const UnifiedSelector: React.FC<UnifiedSelectorProps> = ({
                 return (
                   <div
                     key={department.id}
-                    onClick={() => onSelectDepartment(department)}
                     className="group cursor-pointer transform transition-all duration-500 hover:scale-105"
                     style={{ animationDelay: `${index * 0.2}s` }}
                   >
-                    <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl p-8 border border-white border-opacity-20 hover:bg-opacity-20 hover:border-opacity-40 transition-all duration-300 shadow-2xl">
+                    <div 
+                      onClick={() => onSelectDepartment(department)}
+                      className="bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl p-8 border border-white border-opacity-20 hover:bg-opacity-20 hover:border-opacity-40 transition-all duration-300 shadow-2xl"
+                    >
                       <div className="flex flex-col items-center text-center space-y-6">
                         {/* Department Icon */}
                         <div className={`w-20 h-20 ${department.color} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
