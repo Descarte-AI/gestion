@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, CheckCircle, Star, Users, Award, FileText, MapPin, Calculator, Building2, Scale, Map, FileCheck, CreditCard, Handshake, Network, Shield, TrendingUp, Home } from 'lucide-react';
+import { ArrowLeft, CheckCircle, Star, Users, Award, FileText, MapPin, Calculator, Building2, Scale, Map, FileCheck, CreditCard, Handshake, Network, Shield, TrendingUp, Home, Phone, Mail } from 'lucide-react';
 import { DEPARTMENTS } from '../constants';
 import { Language } from '../types';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -171,9 +171,170 @@ const DepartmentDetail: React.FC<DepartmentDetailProps> = ({
             color: 'bg-green-500'
           }
         ];
+      case 'procedures':
+        return renderProceduresContent();
       default:
         return [];
     }
+  };
+
+  const renderProceduresContent = () => {
+    const procedures = [
+      {
+        title: "Procédure d'obtention d'un titre foncier",
+        steps: [
+          "Dépôt de la demande avec pièces justificatives",
+          "Enquête de commodo et incommodo",
+          "Bornage contradictoire du terrain",
+          "Établissement du plan cadastral",
+          "Délivrance du titre foncier définitif"
+        ],
+        duration: "3-6 mois",
+        cost: "Variable selon la superficie"
+      },
+      {
+        title: "Procédure de régularisation foncière",
+        steps: [
+          "Constitution du dossier de régularisation",
+          "Vérification des droits coutumiers",
+          "Délimitation et bornage",
+          "Validation par les autorités compétentes",
+          "Délivrance du nouveau titre"
+        ],
+        duration: "4-8 mois",
+        cost: "Selon la complexité du dossier"
+      },
+      {
+        title: "Procédure de morcellement",
+        steps: [
+          "Demande de morcellement avec plan",
+          "Étude technique du projet",
+          "Approbation du plan de lotissement",
+          "Création des nouveaux titres",
+          "Attribution des parcelles"
+        ],
+        duration: "2-4 mois",
+        cost: "Forfait + frais par parcelle"
+      }
+    ];
+
+    return (
+      <div className="space-y-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-white mb-4">
+            <span className="bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent">
+              Procédures Administratives
+            </span>
+          </h2>
+          <p className="text-blue-100 text-lg">
+            Guide détaillé des procédures foncières et cadastrales
+          </p>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-orange-400 rounded-full mx-auto mt-4"></div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+          {procedures.map((procedure, index) => (
+            <div key={index} className="bg-white/10 backdrop-blur-2xl rounded-2xl p-6 border border-white/30 shadow-2xl">
+              <h3 className="text-xl font-bold text-white mb-4">{procedure.title}</h3>
+              
+              <div className="space-y-4 mb-6">
+                <h4 className="text-lg font-semibold text-blue-200">Étapes:</h4>
+                <ol className="space-y-2">
+                  {procedure.steps.map((step, stepIndex) => (
+                    <li key={stepIndex} className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0 mt-0.5">
+                        {stepIndex + 1}
+                      </div>
+                      <span className="text-blue-100 text-sm">{step}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+
+              <div className="border-t border-white/20 pt-4 space-y-2">
+                <div className="flex justify-between">
+                  <span className="text-blue-200 font-medium">Durée:</span>
+                  <span className="text-white">{procedure.duration}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-blue-200 font-medium">Coût:</span>
+                  <span className="text-white">{procedure.cost}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Documents Required Section */}
+        <div className="bg-white/10 backdrop-blur-2xl rounded-2xl p-8 border border-white/30 shadow-2xl">
+          <h3 className="text-2xl font-bold text-white mb-6">Documents Requis</h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h4 className="text-lg font-semibold text-blue-200 mb-4">Pour les particuliers:</h4>
+              <ul className="space-y-2">
+                {[
+                  "Carte nationale d'identité",
+                  "Acte de naissance",
+                  "Certificat de résidence",
+                  "Plan de situation du terrain",
+                  "Attestation villageoise (si applicable)"
+                ].map((doc, index) => (
+                  <li key={index} className="flex items-center space-x-3">
+                    <CheckCircle className="w-5 h-5 text-green-400" />
+                    <span className="text-blue-100">{doc}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="text-lg font-semibold text-blue-200 mb-4">Pour les entreprises:</h4>
+              <ul className="space-y-2">
+                {[
+                  "Registre de commerce",
+                  "Statuts de la société",
+                  "Procès-verbal de nomination",
+                  "Attestation fiscale",
+                  "Plan cadastral existant"
+                ].map((doc, index) => (
+                  <li key={index} className="flex items-center space-x-3">
+                    <CheckCircle className="w-5 h-5 text-green-400" />
+                    <span className="text-blue-100">{doc}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Contact Information */}
+        <div className="bg-gradient-to-r from-blue-600 to-orange-600 rounded-2xl p-8 text-white">
+          <div className="text-center">
+            <h3 className="text-2xl font-bold mb-4">Besoin d'assistance ?</h3>
+            <p className="text-lg mb-6">Notre équipe d'experts est à votre disposition</p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <Phone className="w-8 h-8 mx-auto mb-2" />
+                <div className="font-semibold">Téléphone</div>
+                <div>+237 6XX XXX XXX</div>
+              </div>
+              <div className="text-center">
+                <Mail className="w-8 h-8 mx-auto mb-2" />
+                <div className="font-semibold">Email</div>
+                <div>contact@geocasagroup.com</div>
+              </div>
+              <div className="text-center">
+                <MapPin className="w-8 h-8 mx-auto mb-2" />
+                <div className="font-semibold">Adresse</div>
+                <div>Yaoundé, Cameroun</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   };
 
   const steps = getDepartmentSteps();
@@ -268,7 +429,6 @@ const DepartmentDetail: React.FC<DepartmentDetailProps> = ({
                   </div>
                 </div>
               </div>
-            </div>
 
 
               {/* Services List */}
@@ -349,7 +509,7 @@ const DepartmentDetail: React.FC<DepartmentDetailProps> = ({
           </div>
         </div>
       </div>
-    
+    </div>
   );
 };
 
