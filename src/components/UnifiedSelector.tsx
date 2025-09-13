@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   ArrowRight,
   Award, 
   Briefcase,
   Building, 
   Calendar,
+  Clock,
   Eye,
   Mail,
   MapPin,
@@ -45,6 +47,31 @@ const UnifiedSelector: React.FC<UnifiedSelectorProps> = ({
   setLanguage
 }) => {
   const [showUserDetails, setShowUserDetails] = useState(false);
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  // Update time every second
+  useEffect(() => {
+    const timeInterval = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(timeInterval);
+  }, []);
+  const formatTime = (date: Date) => {
+    return date.toLocaleTimeString('fr-FR', {
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit'
+    });
+  };
+
+  const formatDate = (date: Date) => {
+    return date.toLocaleDateString('fr-FR', {
+      weekday: 'short',
+      day: 'numeric',
+      month: 'short'
+    });
+  };
 
   // Complete icon mapping for departments
   const iconMap = {
@@ -58,9 +85,6 @@ const UnifiedSelector: React.FC<UnifiedSelectorProps> = ({
     Eye: Eye,
   };
 
-  const handleDivisionSelect = (division: Division) => {
-    selectDivision(division);
-  };
 
   return (
     <div className="min-h-screen relative">
@@ -69,6 +93,33 @@ const UnifiedSelector: React.FC<UnifiedSelectorProps> = ({
       {/* Language Switcher and Logout - Top Right */}
       <div className="absolute top-6 right-6 z-20">
         <div className="flex items-center space-x-4">
+          {/* Time and Date Display */}
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl px-4 py-3 border border-white/30 shadow-lg">
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-2">
+                <Clock className="w-5 h-5 text-white animate-pulse" />
+                <div className="text-center">
+                  <div className="text-lg font-bold text-white font-mono">
+                    {formatTime(currentTime)}
+                  </div>
+                  <div className="text-xs text-white/80">Heure</div>
+                </div>
+              </div>
+              
+              <div className="w-px h-8 bg-white/30"></div>
+              
+              <div className="flex items-center space-x-2">
+                <Calendar className="w-5 h-5 text-white" />
+                <div className="text-center">
+                  <div className="text-sm font-semibold text-white capitalize">
+                    {formatDate(currentTime)}
+                  </div>
+                  <div className="text-xs text-white/80">Date</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
           <LanguageSwitcher language={language as any} onLanguageChange={setLanguage as any} />
           <button
             onClick={onLogout}
