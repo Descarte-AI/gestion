@@ -52,6 +52,150 @@ const DepartmentDetail: React.FC<DepartmentDetailProps> = ({
     return null;
   }
 
+  // Financing department specific content
+  const financingOffers = {
+    fr: [
+      {
+        id: 'avance-financement',
+        title: '🏗️ Avance de Financement Remboursable',
+        description: 'GeoCasa vous apporte temporairement des fonds pour débloquer une étape de votre projet (ex. : frais de lotissement, immatriculation, bornage, achat de terrain).',
+        conditions: [
+          'Signature d\'une convention d\'avance',
+          'Apport personnel recommandé',
+          'Garantie foncière ou contractuelle exigée',
+          'Remboursement échelonné sur 3 à 12 mois'
+        ],
+        target: 'Propriétaires, promoteurs, héritiers, exploitants fonciers',
+        duration: '3-12 mois',
+        cost: 'Variable selon projet'
+      },
+      {
+        id: 'portage-foncier',
+        title: '🤝 Portage Foncier / Immobilier',
+        description: 'GeoCasa Group acquiert ou prend temporairement en charge un bien foncier ou immobilier, le valorise (lotissement, titre foncier, construction), puis le revend ou partage les produits.',
+        conditions: [
+          'Contrat de portage précisant durée, rôle de chacun et prix de revente',
+          'Possibilité de rachat prioritaire par le propriétaire initial',
+          'Partage des risques et bénéfices selon le modèle établi'
+        ],
+        target: 'Héritiers, propriétaires sans moyens, terrains bloqués ou en indivision',
+        duration: '6-24 mois',
+        cost: 'Partage des bénéfices'
+      },
+      {
+        id: 'partenariat-developpement',
+        title: '🧠 Partenariat de Développement Foncier ou Immobilier',
+        description: 'GeoCasa Group s\'associe avec un propriétaire ou promoteur pour réaliser un projet (lotissement, immeuble, cité, projet agricole ou agro-industriel).',
+        conditions: [
+          'Partage des apports (terrain, capital, ingénierie)',
+          'Répartition claire des bénéfices, du foncier ou des produits',
+          'Signature d\'un protocole d\'accord'
+        ],
+        target: 'Propriétaires, promoteurs en recherche de partenaires',
+        duration: '12-36 mois',
+        cost: 'Partage selon accord'
+      },
+      {
+        id: 'assistance-technique',
+        title: '📄 Assistance Technique & Juridique Personnalisée',
+        description: 'Vous disposez d\'un projet mais avez besoin d\'un accompagnement administratif, foncier ou juridique pour le structurer, le rendre finançable ou le protéger.',
+        conditions: [
+          'Études de faisabilité foncière',
+          'Plans de montage juridique (portage, indivision, succession, GIC, SCI, etc.)',
+          'Dossiers de financement ou de partenariat',
+          'Représentation auprès des services de l\'État'
+        ],
+        target: 'Facilitateurs, promoteurs, copropriétaires, exploitants fonciers',
+        duration: '1-6 mois',
+        cost: '50,000 - 200,000 FCFA'
+      },
+      {
+        id: 'accompagnement-complet',
+        title: '🧾 Accompagnement Complet sur Projet Clé-en-main',
+        description: 'GeoCasa prend en charge l\'ensemble du projet : études, financement, procédures, suivi, jusqu\'à la livraison ou la vente.',
+        conditions: [
+          'Études préalables et budget',
+          'Montage financier et juridique',
+          'Pilotage administratif et technique',
+          'Vente finale ou mise en valeur'
+        ],
+        target: 'Promoteurs, investisseurs passifs, héritiers à l\'étranger, collectivités',
+        duration: '12-48 mois',
+        cost: 'Selon projet'
+      }
+    ],
+    en: [
+      {
+        id: 'financing-advance',
+        title: '🏗️ Repayable Financing Advance',
+        description: 'GeoCasa temporarily provides you with funds to unlock a stage of your project (e.g.: subdivision fees, registration, boundary marking, land purchase).',
+        conditions: [
+          'Signing of an advance agreement',
+          'Personal contribution recommended',
+          'Land or contractual guarantee required',
+          'Staggered repayment over 3 to 12 months'
+        ],
+        target: 'Owners, developers, heirs, land operators',
+        duration: '3-12 months',
+        cost: 'Variable according to project'
+      },
+      {
+        id: 'land-holding',
+        title: '🤝 Land / Real Estate Holding',
+        description: 'GeoCasa Group acquires or temporarily takes charge of a land or real estate asset, enhances it (subdivision, land title, construction), then resells it or shares the proceeds.',
+        conditions: [
+          'Holding contract specifying duration, role of each party and resale price',
+          'Possibility of priority buyback by the initial owner',
+          'Sharing of risks and benefits according to the established model'
+        ],
+        target: 'Heirs, owners without means, blocked or jointly owned land',
+        duration: '6-24 months',
+        cost: 'Profit sharing'
+      },
+      {
+        id: 'development-partnership',
+        title: '🧠 Land or Real Estate Development Partnership',
+        description: 'GeoCasa Group partners with an owner or developer to carry out a project (subdivision, building, housing estate, agricultural or agro-industrial project).',
+        conditions: [
+          'Sharing of contributions (land, capital, engineering)',
+          'Clear distribution of profits, land or products',
+          'Signing of a protocol agreement'
+        ],
+        target: 'Owners, developers looking for partners',
+        duration: '12-36 months',
+        cost: 'Sharing according to agreement'
+      },
+      {
+        id: 'technical-assistance',
+        title: '📄 Personalized Technical & Legal Assistance',
+        description: 'You have a project but need administrative, land or legal support to structure it, make it financeable or protect it.',
+        conditions: [
+          'Land feasibility studies',
+          'Legal structuring plans (holding, joint ownership, succession, GIC, SCI, etc.)',
+          'Financing or partnership files',
+          'Representation with State services'
+        ],
+        target: 'Facilitators, developers, co-owners, land operators',
+        duration: '1-6 months',
+        cost: '50,000 - 200,000 FCFA'
+      },
+      {
+        id: 'complete-support',
+        title: '🧾 Complete Turnkey Project Support',
+        description: 'GeoCasa takes charge of the entire project: studies, financing, procedures, monitoring, until delivery or sale.',
+        conditions: [
+          'Preliminary studies and budget',
+          'Financial and legal structuring',
+          'Administrative and technical management',
+          'Final sale or enhancement'
+        ],
+        target: 'Developers, passive investors, heirs abroad, communities',
+        duration: '12-48 months',
+        cost: 'According to project'
+      }
+    ]
+  };
+
   // Land Management Procedures Data
   const landProcedures = {
     foncier: [
@@ -275,7 +419,11 @@ const DepartmentDetail: React.FC<DepartmentDetailProps> = ({
       <div className="text-center">
         <div className="flex items-center justify-center mb-8">
           <div className={`w-24 h-24 ${department.color} rounded-3xl flex items-center justify-center shadow-2xl`}>
-            <MapPin className="w-12 h-12 text-white" />
+            {department.id === 'financing' ? (
+              <CreditCard className="w-12 h-12 text-white" />
+            ) : (
+              <MapPin className="w-12 h-12 text-white" />
+            )}
           </div>
         </div>
         <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -287,6 +435,21 @@ const DepartmentDetail: React.FC<DepartmentDetailProps> = ({
         <p className="text-xl lg:text-2xl text-blue-100 leading-relaxed max-w-4xl mx-auto">
           {language === 'en' ? department.descriptionEn : department.description}
         </p>
+        
+        {/* Financing Department Objective */}
+        {department.id === 'financing' && (
+          <div className="mt-12 bg-white/10 backdrop-blur-2xl rounded-2xl p-8 border border-white/30 shadow-xl max-w-4xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-4">
+              🎯 {language === 'en' ? 'Objective of our offers' : 'Objectif de nos offres'}
+            </h3>
+            <p className="text-blue-100 text-lg leading-relaxed">
+              {language === 'en' 
+                ? 'Support project holders in land and real estate by offering adapted solutions for financing, legal structuring, project development and strategic partnership.'
+                : 'Accompagner les porteurs de projets fonciers et immobiliers en proposant des solutions adaptées de financement, de structuration juridique, de montage de projet et de partenariat stratégique.'
+              }
+            </p>
+          </div>
+        )}
       </div>
 
       {/* Image Gallery */}

@@ -32,6 +32,11 @@ function App() {
     setShowDivisionDetail(null); // Close division detail when selecting office
     selectOffice(officeId);
   };
+
+  const handleDepartmentSelect = (department: any) => {
+    selectDepartment(department);
+  };
+
   // Show department detail if requested
   if (showDepartmentDetail) {
     return (
