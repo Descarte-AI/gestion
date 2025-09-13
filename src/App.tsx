@@ -23,9 +23,6 @@ function App() {
     await login(credentials);
   };
 
-  const handleDepartmentSelect = (department: Department) => {
-    selectDepartment(department);
-  };
 
   const handleOfficeSelect = (officeId: string) => {
     setSelectedOffice(officeId);
