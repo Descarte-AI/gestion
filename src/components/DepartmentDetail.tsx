@@ -252,6 +252,23 @@ const DepartmentDetail: React.FC<DepartmentDetailProps> = ({
                           <div className="text-2xl font-bold text-gray-900">15+</div>
                           <div className="text-xs text-gray-600">
                             {language === 'en' ? 'Years' : 'Années'}
+                          </div>
+                        </div>
+                        <div>
+                          <div className="flex items-center justify-center mb-2">
+                            <Star className="w-5 h-5 text-yellow-600" />
+                          </div>
+                          <div className="text-2xl font-bold text-gray-900">98%</div>
+                          <div className="text-xs text-gray-600">
+                            {language === 'en' ? 'Success' : 'Succès'}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             {/* Process Steps */}
             <div className="space-y-12">
@@ -313,7 +330,7 @@ const DepartmentDetail: React.FC<DepartmentDetailProps> = ({
           </div>
         </div>
       </div>
-    
+    </div>
   );
 };
 
