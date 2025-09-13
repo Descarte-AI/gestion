@@ -7,7 +7,9 @@ import LanguageSwitcher from './components/LanguageSwitcher';
 import LoginForm from './components/LoginForm';
 import UnifiedSelector from './components/UnifiedSelector';
 import DivisionDetail from './components/DivisionDetail';
-import DepartmentDetail from './components/DepartmentDetail';
+import GFCDepartmentDetail from './components/GFCDepartmentDetail';
+import FFIDepartmentDetail from './components/FFIDepartmentDetail';
+import VGIDepartmentDetail from './components/VGIDepartmentDetail';
 import Dashboard from './components/Dashboard';
 import OfficeDashboard from './components/OfficeDashboard';
 import { COMPANY_INFO } from './constants';
@@ -36,14 +38,40 @@ function App() {
 
   // Show department detail if requested
   if (showDepartmentDetail) {
-    return (
-      <DepartmentDetail
-        departmentId={showDepartmentDetail}
-        onBack={() => setShowDepartmentDetail(null)}
-        language={language}
-        setLanguage={setLanguage}
-      />
-    );
+    switch (showDepartmentDetail) {
+      case 'land-cadastral':
+        return (
+          <GFCDepartmentDetail
+            onBack={() => setShowDepartmentDetail(null)}
+            language={language}
+            setLanguage={setLanguage}
+          />
+        );
+      case 'financing':
+        return (
+          <FFIDepartmentDetail
+            onBack={() => setShowDepartmentDetail(null)}
+            language={language}
+            setLanguage={setLanguage}
+          />
+        );
+      case 'sales-management':
+        return (
+          <VGIDepartmentDetail
+            onBack={() => setShowDepartmentDetail(null)}
+            language={language}
+            setLanguage={setLanguage}
+          />
+        );
+      default:
+        return (
+          <GFCDepartmentDetail
+            onBack={() => setShowDepartmentDetail(null)}
+            language={language}
+            setLanguage={setLanguage}
+          />
+        );
+    }
   }
 
   // Show division detail if requested
